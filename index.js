@@ -1,0 +1,14 @@
+import{S as h,i as u}from"./assets/vendor-5ObWk2rO.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const n of r.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&s(n)}).observe(document,{childList:!0,subtree:!0});function i(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function s(e){if(e.ep)return;e.ep=!0;const r=i(e);fetch(e.href,r)}})();const p="46054358-74185f2755c78a9980c41a2df",m="https://pixabay.com/api/";async function y(o){try{const t=await fetch(`${m}?key=${p}&q=${encodeURIComponent(o.trim())}&image_type=photo&orientation=horizontal&safesearch=true`);if(!t.ok)throw new Error("No images found.");return t.json()}catch(t){throw console.error(t),new Error("Error fetching images.")}}function g(o){const t=document.querySelector(".gallery");o.forEach(s=>{const e=document.createElement("div");e.classList.add("gallery-item"),e.innerHTML=`
+        <div class="photo-card">
+            <a href="${s.largeImageURL}" class="gallery-link">
+                <img width="360" height="152" src="${s.webformatURL}" class="photo-card-img" alt="${s.tags}" loading="lazy"/>
+            </a>
+            <div class="info">
+                <p><b>Likes</b> ${s.likes}</p>
+                <p><b>Views</b> ${s.views}</p>
+                <p><b>Comments</b> ${s.comments}</p>
+                <p><b>Downloads</b> ${s.downloads}</p>
+            </div>
+        </div>
+        `,t.appendChild(e)}),new h(".gallery a").refresh()}function a(){const o=document.querySelector(".gallery");o.innerHTML=""}function b(){u.warning({message:"Sorry, there are no images matching <br>your search query. Please try again!",position:"topRight",titleColor:"white",title:"ⓧ",titleSize:"22px",backgroundColor:"red",icon:"",messageColor:"white",theme:"dark",class:"toast-center"})}function d(o){u.error({title:"Err",message:o,position:"topRight",titleColor:"white",title:"ⓧ",titleSize:"22px",backgroundColor:"red",icon:"",messageColor:"white",theme:"dark"})}const f=document.querySelector("#search-form"),l=f.querySelector("input"),c=document.querySelector(".loader");f.addEventListener("submit",async o=>{o.preventDefault();const t=l.value.trim();if(!t||t===""){a(),d("The search field cannot be empty!");return}c.style.display="block";try{const i=await y(t);c.style.display="none",a(),l.value="",i.hits.length===0?b():g(i.hits)}catch{c.style.display="none",a(),d("The request failed. Please try again later."),l.value=""}});
+//# sourceMappingURL=index.js.map
