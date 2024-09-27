@@ -17,6 +17,7 @@
   "author": "Serhii Korshun <serg33308@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.7",
     "css-loader": "^7.1.2",
     "izitoast": "^1.4.0",
     "simplelightbox": "^2.14.3",

@@ -9,13 +9,15 @@
 
 /* gallery */
 
+.gallery {
+  padding-bottom: 32px;
+}
+
 #search-form {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  /* width: 371px;
-  height: 40px; */
 }
 
 #search-form input {
@@ -148,4 +150,24 @@
 
 .toast-center .iziToast-texts {
   text-align: center;
+}
+
+.load-more {
+  margin: 0 auto;
+  width: 125px;
+  height: 40px;
+  border-radius: 3px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  background-color: #4e75ff;
+  color: #fff;
+  border: none;
+}
+
+.load-more:hover {
+  background-color: #6c8cff;
 }
